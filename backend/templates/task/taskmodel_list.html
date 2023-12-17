@@ -1,0 +1,17 @@
+<h1>ToDo List</h1>
+
+<table>
+    <tr>
+        <p>Items</p>
+    </tr>
+
+    {% for task in tasks %}
+    <tr>
+        <p>{{task.title}}</p>
+    </tr>
+
+    {% empty %}
+       <h4>No Task</h4>
+
+    {% endfor %}
+</table>
