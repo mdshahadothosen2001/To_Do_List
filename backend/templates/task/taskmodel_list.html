@@ -4,10 +4,9 @@
     <tr>
         <p>Items</p>
     </tr>
-
     {% for task in tasks %}
     <tr>
-        <p>{{task.title}}</p>
+        <p>{{task.title}} <a href="{% url 'task' task.id %}">View</a> </p>
     </tr>
 
     {% empty %}
