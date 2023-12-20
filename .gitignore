@@ -2,3 +2,4 @@ backend/db.sqlite3
 backend/config/__pycache__/
 backend/task/__pycache__/
 backend/task/migrations/
+backend/task/registrations/__pycache__/
