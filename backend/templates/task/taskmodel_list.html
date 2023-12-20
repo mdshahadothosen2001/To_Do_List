@@ -1,3 +1,4 @@
+{{request.user}}
 <h1>ToDo List</h1>
 
 <a href="{% url 'task_create' %}">Add Task</a>
@@ -8,7 +9,7 @@
     </tr>
     {% for task in tasks %}
     <tr>
-        <p>{{task.title}} <a href="{% url 'task' task.id %}">View</a> <a href="{% url 'task_update' task.id %}">Edit</a> </p>
+        <p>{{task.title}} <a href="{% url 'task' task.id %}">View</a> <a href="{% url 'task_update' task.id %}">Edit</a>  <a href="{% url 'task_delete' task.id %}">Remove</a> </p>
     </tr>
 
     {% empty %}
