@@ -3,3 +3,5 @@ backend/config/__pycache__/
 backend/task/__pycache__/
 backend/task/migrations/
 backend/task/registrations/__pycache__/
+backend/home/__pycache__/
+backend/home/migrations/

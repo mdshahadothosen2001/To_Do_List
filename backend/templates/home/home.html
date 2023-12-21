@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+
+    <div class="login">
+        {% if request.user.is_authenticated %}
+        <p>{{request.user}}</p>
+        <p>{{request.user.email}}</p>
+        <a href="{% url 'user_logout' %}">logout</a>
+        {% else %}
+        <a href="{% url 'user_login' %}">login</a>
+        {% endif %}
+    </div>
+
+    <p>Choose your needed option</p>
+    <div class="server">
+        <div class="task">
+            <a href="/task/">Task</a>
+        </div>
+        <div class="study-plan">
+            <a href="/task/">Study plan</a>
+        </div>
+        <div class="Notes">
+            <a href="/task/">Notes</a>
+        </div>
+    </body>
+    </div>
+</html>
