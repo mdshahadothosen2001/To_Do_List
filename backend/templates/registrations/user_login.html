@@ -1,5 +1,6 @@
 <form action="" method="POST">
     {% csrf_token %}
     {{form.as_p}}
-    <input type="submit" value="login">
+    <input type="submit" value="sign in">
 </form>
+<a href="{% url 'user_register' %}">sign up</a>
