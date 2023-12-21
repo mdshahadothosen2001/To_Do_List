@@ -22,6 +22,7 @@ DJANGO_APPS = [
 
 LOCAL_APPS = [
     "task",
+    "home",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
