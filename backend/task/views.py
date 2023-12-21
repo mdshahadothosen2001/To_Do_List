@@ -14,6 +14,22 @@ class TaskListView(LoginRequiredMixin, ListView):
     """This class for display list of tasks"""
 
     model = TaskModel
+    def get_context_data(self, **kwargs):
+        """Return task list context which loggined user created tasks"""
+
+        context = super().get_context_data(**kwargs)
+        context['tasks'] = context['tasks'].filter(user=self.request.user)
+        context['count'] = context['tasks'].filter(complete=False)
+
+        search_input_data = self.request.GET.get("search-area")
+        if search_input_data:
+            context['tasks'] = context['tasks'].filter(
+                title__startswith=search_input_data) or ''
+
+            context['search_input'] = search_input_data
+        
+        return context
+    
     context_object_name = 'tasks'
 
 
@@ -28,15 +44,21 @@ class TaskCreateView(LoginRequiredMixin, CreateView):
     """This class for create a new task"""
 
     model = TaskModel
-    fields = "__all__"
+    fields = ["title", "description", "complete"]
     success_url = reverse_lazy("tasks")
+
+    def form_valid(self, form):
+        """Used for set atutomatically user when create task"""
+        form.instance.user = self.request.user
+
+        return super(TaskCreateView, self).form_valid(form)
 
 
 class TaskUpdateView(LoginRequiredMixin, UpdateView):
     """This class used for modify specific task"""
 
     model = TaskModel
-    fields = "__all__"
+    fields = ["title", "description", "complete"]
     success_url = reverse_lazy("tasks")
 
 
