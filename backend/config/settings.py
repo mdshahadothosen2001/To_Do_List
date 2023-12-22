@@ -24,6 +24,7 @@ LOCAL_APPS = [
     "task",
     "home",
     "study_plan",
+    "note",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
