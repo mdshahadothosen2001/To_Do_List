@@ -1,3 +1,4 @@
+<a href="{% url 'note_create' %}">Make note</a>
 {% for note in notes %}
     <div class="notes">
         <a href="{% url 'note' note.id %}"><p>{{note.title}}</p></a>
