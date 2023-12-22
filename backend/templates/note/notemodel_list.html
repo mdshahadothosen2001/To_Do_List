@@ -1,7 +1,9 @@
 {% for note in notes %}
     <div class="notes">
-        <p>{{note.title}}</p>
+        <a href="{% url 'note' note.id %}"><p>{{note.title}}</p></a>
     </div>
     {% empty %}
         <p>Have no note</p>
 {% endfor %}
+
+<a href="{% url 'home' %}">Home</a>
