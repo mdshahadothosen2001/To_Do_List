@@ -1,6 +1,6 @@
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, DeleteView
 from django.urls import reverse_lazy
 from .models import NoteModel
 
@@ -10,6 +10,12 @@ class NoteListView(ListView):
     """Used for display notes"""
 
     model = NoteModel
+    def get_context_data(self, **kwargs):
+        """Return task list context which loggined user created tasks"""
+
+        context = super().get_context_data(**kwargs)
+        context['notes'] = context['notes'].filter(user=self.request.user)       
+        return context
     context_object_name = "notes"
 
 
@@ -30,4 +36,11 @@ class NoteCreateView(CreateView):
 
         form.instance.user = self.request.user
         return super().form_valid(form)
+    success_url = reverse_lazy("notes")
+
+
+class NoteDeleteView(DeleteView):
+    """Used for delete specific note"""
+
+    model = NoteModel
     success_url = reverse_lazy("notes")

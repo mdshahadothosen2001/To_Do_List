@@ -2,7 +2,8 @@ from django.urls import path
 from .views import (
     NoteListView,
     NoteDetailView,
-    NoteCreateView
+    NoteCreateView,
+    NoteDeleteView
     )
 
 
@@ -22,5 +23,10 @@ urlpatterns = [
         route="create/",
         view=NoteCreateView.as_view(),
         name="note_create"
+    ),
+    path(
+        route="delete/<int:pk>/",
+        view=NoteDeleteView.as_view(),
+        name="note_delete"
     ),
 ]

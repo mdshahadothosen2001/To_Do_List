@@ -1,6 +1,6 @@
 <form method="POST" action="">
     {% csrf_token %}
-    <p>Are you sure delete this item? "{{task}}"</p>
+    <p>Are you sure delete this study plan? "{{study_plan.title}}"</p>
     <input type="submit" value="Delete">
 </form>
 <a href="{% url 'study_plans' %}">Cancel</a>
