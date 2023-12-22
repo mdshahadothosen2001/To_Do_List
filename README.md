@@ -31,8 +31,8 @@ pip install -r backend/requirements/development.txt
 docker-compose up --build
 ```
 
-click here [URL](http://localhost:8000/task/)  for check this project working or not
-If you see login interface then it is working.
+click here [URL](http://localhost:8000/)  for check this project working or not
+If you see home interface then it is working.
 
 ## Access token and authentication
 
