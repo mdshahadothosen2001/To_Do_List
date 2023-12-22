@@ -1,0 +1,7 @@
+{% for note in notes %}
+    <div class="notes">
+        <p>{{note.title}}</p>
+    </div>
+    {% empty %}
+        <p>Have no note</p>
+{% endfor %}
