@@ -2,7 +2,7 @@
 
 {% for study_plan in study_plans %}
     <div class="study_plan">
-        <h3>{{study_plan.title}}</h3>
+        <h3>{{study_plan.title}}</h3> <a href="{% url 'study_plan_delete' study_plan.id %}">Remove</a>
         <p>{{study_plan.start_time}} to {{study_plan.end_time}}</p>
         <p>{{study_plan.work}}</p>
     </div>

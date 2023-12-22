@@ -2,7 +2,7 @@ from django.forms.models import BaseModelForm
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, DeleteView
 from django.urls import reverse_lazy
 from .models import StudyPlanModel
 
@@ -33,3 +33,10 @@ class StudyPlanCreateView(CreateView):
 
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+
+class StudyPlanDeleteView(DeleteView):
+    """Used for delete specific study plan"""
+
+    model = StudyPlanModel
+    success_url = reverse_lazy("study_plans")

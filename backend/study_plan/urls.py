@@ -1,7 +1,8 @@
 from django.urls import path
 from .views import (
     StudyPlanView,
-    StudyPlanCreateView
+    StudyPlanCreateView,
+    StudyPlanDeleteView
     )
 
 urlpatterns = [
@@ -14,5 +15,10 @@ urlpatterns = [
         route="create/",
         view=StudyPlanCreateView.as_view(),
         name="study_plan_create"
+    ),
+    path(
+        route="delete/<int:pk>/",
+        view=StudyPlanDeleteView.as_view(),
+        name="study_plan_delete"
     ),
 ]
