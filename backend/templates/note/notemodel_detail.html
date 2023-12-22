@@ -2,4 +2,5 @@
 <p>{{note.description}}</p>
 
 <a href="{% url 'notes' %}">Go Back</a>
+<a href="{% url 'note_update' note.id %}">Edit</a>
 <a href="{% url 'note_delete' note.id %}">Delete</a>

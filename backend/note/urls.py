@@ -3,7 +3,8 @@ from .views import (
     NoteListView,
     NoteDetailView,
     NoteCreateView,
-    NoteDeleteView
+    NoteDeleteView,
+    NoteUpdateView
     )
 
 
@@ -28,5 +29,10 @@ urlpatterns = [
         route="delete/<int:pk>/",
         view=NoteDeleteView.as_view(),
         name="note_delete"
+    ),
+    path(
+        route="update/<int:pk>/",
+        view=NoteUpdateView.as_view(),
+        name="note_update"
     ),
 ]

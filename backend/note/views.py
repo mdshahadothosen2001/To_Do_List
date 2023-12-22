@@ -1,6 +1,10 @@
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView, DeleteView
+from django.views.generic.edit import (
+    CreateView,
+    DeleteView,
+    UpdateView
+    )
 from django.urls import reverse_lazy
 from .models import NoteModel
 
@@ -43,4 +47,11 @@ class NoteDeleteView(DeleteView):
     """Used for delete specific note"""
 
     model = NoteModel
+    success_url = reverse_lazy("notes")
+
+class NoteUpdateView(UpdateView):
+    """Used for update note"""
+
+    model = NoteModel
+    fields = ["title", "description"]
     success_url = reverse_lazy("notes")

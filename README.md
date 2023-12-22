@@ -52,5 +52,12 @@ If you see home interface then it is working.
 10. http://localhost:8000/study-plan/create/ api hit for make new study plan.
 11. http://localhost:8000/study-plan/delete/ api hit for delete specific study plan.
 
+## For Note
+12. http://localhost:8000/note/ api hit for list of note.
+13. http://localhost:8000/note/create/ api hit for make note.
+14. http://localhost:8000/note/update/1/ api hit for modify the note.
+15. http://localhost:8000/note/detail/1/ api hit for detail of note.
+16. http://localhost:8000/note/delete/1/ api hit for delete the note.
+
 ## For user logout:
-12. http://localhost:8000/user/logout/ api hit for user logout.
+17. http://localhost:8000/user/logout/ api hit for user logout.
