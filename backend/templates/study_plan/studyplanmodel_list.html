@@ -1,0 +1,12 @@
+{% for study_plan in study_plans %}
+    <div class="study_plan">
+        <h3>{{study_plan.title}}</h3>
+        <p>{{study_plan.start_time}} to {{study_plan.end_time}}</p>
+        <p>{{study_plan.work}}</p>
+    </div>
+
+    {% empty %}
+        <h4>No Task</h4>
+{% endfor %}
+
+<a href="{% url 'home' %}">Home</a>
