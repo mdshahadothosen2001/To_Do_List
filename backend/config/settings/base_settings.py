@@ -1,4 +1,9 @@
+import os
 from pathlib import Path
+
+import dj_database_url
+
+from config.JWT_SETTINGS import JWT_SETTINGS
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,6 +25,11 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
+THIRD_PARTY_APPS = [
+    "rest_framework",
+    
+]
+
 LOCAL_APPS = [
     "task",
     "home",
@@ -27,7 +37,19 @@ LOCAL_APPS = [
     "note",
 ]
 
-INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework_simplejwt.authentication.JWTStatelessUserAuthentication",
+    ],
+    "DEFAULT_RENDERER_CLASSES": ["rest_framework.renderers.JSONRenderer"],
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
+    ],
+}
+
+SIMPLE_JWT = JWT_SETTINGS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -61,11 +83,25 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+
+# Caching in Redis
+# https://pypi.org/project/django-redis/
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": os.environ.get("REDIS_CONNECTION"),
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        },
     }
+}
+
+DATABASES = {
+    "default": dj_database_url.config(
+        default=os.environ.get("DB_CONNECTION"),
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
 }
 
 
