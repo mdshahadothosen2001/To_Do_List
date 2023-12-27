@@ -8,7 +8,6 @@ from django.views import View
 from .user_register_form import CustomUserCreationForm
 
 
-
 class UserCreationView(FormView):
     """This class used for user registration for task application"""
 
@@ -26,12 +25,12 @@ class UserCreationView(FormView):
             login(self.request, user)
 
         return super(UserCreationView, self).form_valid(form)
-    
+
     def get(self, *args, **kwargs):
         """Used for check user id authenticated then redirect"""
 
         if self.request.user.is_authenticated:
-            return redirect('home')
+            return redirect("home")
 
         return super(UserCreationView, self).get(*args, **kwargs)
 
@@ -52,4 +51,4 @@ class CustomLogoutView(View):
 
     def get(self, request, *args, **kwargs):
         logout(request)
-        return redirect(reverse_lazy('home'))
+        return redirect(reverse_lazy("home"))

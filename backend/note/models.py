@@ -2,7 +2,6 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
-
 class NoteModel(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=100, null=True, blank=True)
@@ -12,7 +11,7 @@ class NoteModel(models.Model):
 
     def __str__(self):
         return self.title
-    
+
     class Meta:
         verbose_name = "Note"
         verbose_name_plural = "Notes"

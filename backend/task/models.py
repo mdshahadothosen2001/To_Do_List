@@ -14,7 +14,7 @@ class TaskModel(models.Model):
         return self.title
 
     class Meta:
-        ordering = ['complete']
+        ordering = ["complete"]
         verbose_name = "Task"
         verbose_name_plural = "Tasks"
         db_table = "task"

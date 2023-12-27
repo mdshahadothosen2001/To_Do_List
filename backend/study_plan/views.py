@@ -16,13 +16,14 @@ class StudyPlanView(ListView):
         """Return task list context which loggined user created tasks"""
 
         context = super().get_context_data(**kwargs)
-        context['study_plans'] = context['study_plans'].filter(user=self.request.user)       
+        context["study_plans"] = context["study_plans"].filter(user=self.request.user)
         return context
+
     context_object_name = "study_plans"
 
 
 class StudyPlanCreateView(CreateView):
-    """Used for make new study plan"""    
+    """Used for make new study plan"""
 
     model = StudyPlanModel
     fields = ["title", "start_time", "end_time", "work", "else_work", "priority"]

@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class StudyPlanModel(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True )
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=100, null=True, blank=True)
     start_time = models.TimeField()
     end_time = models.TimeField()
@@ -17,7 +17,7 @@ class StudyPlanModel(models.Model):
         return self.title
 
     class Meta:
-        ordering = ['priority']
+        ordering = ["priority"]
         verbose_name = "Study_Plan"
         verbose_name_plural = "Study_plans"
         db_table = "study_plan"

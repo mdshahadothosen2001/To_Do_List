@@ -26,4 +26,5 @@ class StudyPlanModelAdmin(admin.ModelAdmin):
     )
     list_per_page = 25
 
+
 admin.site.register(StudyPlanModel, StudyPlanModelAdmin)
