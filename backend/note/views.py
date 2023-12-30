@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
@@ -5,7 +6,7 @@ from django.urls import reverse_lazy
 from .models import NoteModel
 
 
-class NoteListView(ListView):
+class NoteListView(LoginRequiredMixin, ListView):
     """Used for display notes"""
 
     model = NoteModel
@@ -20,14 +21,14 @@ class NoteListView(ListView):
     context_object_name = "notes"
 
 
-class NoteDetailView(DetailView):
+class NoteDetailView(LoginRequiredMixin, DetailView):
     """Used to read note"""
 
     model = NoteModel
     context_object_name = "note"
 
 
-class NoteCreateView(CreateView):
+class NoteCreateView(LoginRequiredMixin, CreateView):
     """Used for make new note"""
 
     model = NoteModel
@@ -42,14 +43,14 @@ class NoteCreateView(CreateView):
     success_url = reverse_lazy("notes")
 
 
-class NoteDeleteView(DeleteView):
+class NoteDeleteView(LoginRequiredMixin, DeleteView):
     """Used for delete specific note"""
 
     model = NoteModel
     success_url = reverse_lazy("notes")
 
 
-class NoteUpdateView(UpdateView):
+class NoteUpdateView(LoginRequiredMixin, UpdateView):
     """Used for update note"""
 
     model = NoteModel

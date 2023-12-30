@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.forms.models import BaseModelForm
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -7,7 +8,7 @@ from django.urls import reverse_lazy
 from .models import StudyPlanModel
 
 
-class StudyPlanView(ListView):
+class StudyPlanView(LoginRequiredMixin, ListView):
     """Used for display study plans"""
 
     model = StudyPlanModel
@@ -22,7 +23,7 @@ class StudyPlanView(ListView):
     context_object_name = "study_plans"
 
 
-class StudyPlanCreateView(CreateView):
+class StudyPlanCreateView(LoginRequiredMixin, CreateView):
     """Used for make new study plan"""
 
     model = StudyPlanModel
@@ -36,7 +37,7 @@ class StudyPlanCreateView(CreateView):
         return super().form_valid(form)
 
 
-class StudyPlanDeleteView(DeleteView):
+class StudyPlanDeleteView(LoginRequiredMixin, DeleteView):
     """Used for delete specific study plan"""
 
     model = StudyPlanModel
