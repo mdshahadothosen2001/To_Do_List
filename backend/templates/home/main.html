@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>To_Do_List: manage task, study plan, note online</title>
+
+</head>
+<body>
+    <div class="container-fluid p-3 bg-color-for-head">
+        {% if request.user.is_authenticated %}
+        <div class="row">
+            <h3 class="col-2 white size-3 font-family-verdana bold display-left">{{request.user}}</h3>
+            <span class="col-8"></span>
+            <a class="col-2 no-underline white size-3 display-right" href="{% url 'user_logout' %}">logout</a>
+        </div>
+        {% else %}
+            <div class="row">
+                <h4 class="col-2 white size-3 bold font-family-verdana display-left">To-Do_List</h4>
+                <span class="col-9"></span>
+                <span class="col-1 size-3 display-right"><a class="no-underline white" href="{% url 'user_login' %}">Sign in</a> / <a class="no-underline white" href="">Sign Up</a></span>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="container">
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+    <div class="container-fluid about-app bg-color-for-footer">
+        <div class="container">
+            <p class="size-0 font-family-fantasy dark display-center">Your all-in-one To_Do_List app</p>
+            <p class="size-2 display-left">Get task, study-plan, note in a just few taps. Enjoy real time task create, update, make study plan for the learning process, and Organize daily task and store required info as a note. </p>
+            <img class="about-app-installation" src="https://th.bing.com/th/id/R.65a3be948d42883009c92fb0c46bf210?rik=sesu%2fSrV7KoCBg&pid=ImgRaw&r=0" alt="app-image">
+        </div>
+        <div class="container p-3 bg-color-for-app-detail size-3 black">
+            <div class="row">
+                <div class="col-2 m-3">
+                    <p class=""><span class="bold blue">To_Do_List </span>is a simple and effective productivity tool used to organize tasks
+                        and manage time. It typically consists of a list of tasks or activities that
+                        need to be completed.And easy to learning by making study plan, updating progress. And access required data which stored on note service.
+                    </p>
+                </div>
+                <div class="col-2 m-3">
+                    <p class="bold">Explore</p>
+                    <p>About Us</p>
+                    <p>Terms & Conditions</p>
+                    <p>FAQ</p>
+                </div>
+                <div class="col-1 m-3">
+                    <p class="bold">services</p>
+                    <p>Task</p>
+                    <p>study-plan</p>
+                    <p>Note</p>
+                </div>
+                <div class="col-2 m-3">
+                    <p class="bold">Useful Links</p>
+                    <a class="no-underline black" href="/task/">Task</a><br>
+                    <a class="no-underline black" href="/task/create/">Create New Task</a><br>
+                    <a class="no-underline black" href="/study-plan/">Study plan</a><br>
+                    <a class="no-underline black" href="/study-plan/create/">Create New Plan</a><br>
+                    <a class="no-underline black" href="/note/">Note</a><br>
+                    <a class="no-underline black" href="/note/create/">Create New Note</a><br>
+                </div>
+                <div class="col-1 m-3">
+                    <p class="bold">Promotions</p>
+                    <p>News</p>
+                    <p>Promotions</p>
+                    <p>VAS</p>
+                </div>
+                <div class="col-1"></div>
+            </div>
+            <div class="row display-center p-3 size-3">
+                <span class="col-3 m-3">
+                    <span class="m-1">Support Center</span>
+                    <span class="m-1">Payment Security</span>
+                    <span class="m-1">Privacy Policy</span>
+                </span>
+                <span class="col-1"></span>
+                <span class="col-5">Copyright © 2023. <a class="no-underline black" href="{% url 'home' %}">To_Do_List</a>. All rights reserved.</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

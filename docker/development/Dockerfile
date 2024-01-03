@@ -7,4 +7,8 @@ WORKDIR /app
 
 COPY ./backend/requirements/development.txt /app/backend/requirements/
 
-RUN pip install -r backend/requirements/development.txt
+RUN pip install --no-cache-dir -r backend/requirements/development.txt
+
+COPY . /app
+
+RUN python /app/backend/manage.py collectstatic --noinput --settings=config.settings.dev_settings

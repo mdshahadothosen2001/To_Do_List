@@ -1,33 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-
-    <div class="login">
-        {% if request.user.is_authenticated %}
-        <p>{{request.user}}</p>
-        <p>{{request.user.email}}</p>
-        <a href="{% url 'user_logout' %}">logout</a>
-        {% else %}
-        <a href="{% url 'user_login' %}">login</a>
-        {% endif %}
+{% extends 'home/main.html' %}
+{% block content %}
+<div>
+    <div class=" background-advertising color-for-welcome">
+        <img class="background-advertising-img" src="https://cdn.dribbble.com/users/2131993/screenshots/4948736/thoughtworks-gif_dribbble.gif" alt="Loading Image">
+        <div class="background-advertising-content size-2">
+            <p class=" size-2 font-family-fantasy">Welcome to To_Do_List</p>
+            <p class=" size-3">Your Plans, Notes, and Tasks — All Organized Here</p>
+        </div>
     </div>
-
-    <p>Choose your needed option</p>
-    <div class="server">
-        <div class="task">
-            <a href="/task/">Task</a>
+    <div class="p-3"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <a href="https://www.rokomari.com/book/177202/the-alchemist" target="_blank">
+                    <img  class="background-advertising-client-img" src="https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/The_Alchemist_-Paulo_Coelho-005eb-177202.jpeg" alt="Loading Image">
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="https://www.rokomari.com/book/193934/porashonar-jadukori-kowshol" target="_blank">
+                    <img class="background-advertising-client-img" src="https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/Porashonar_Jadukori_Kowshol-Apel_Mahmud-fc317-193934.jpg" alt="Loading Image">
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="https://www.rokomari.com/book/168132/change-your-thinking-change-your-life" target="_blank">
+                    <img class="background-advertising-client-img" src="https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/123986f10_168132.jpg" alt="Loading Image">
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="https://www.rokomari.com/book/215560/ikigai?ref=rncl_0" target="_blank">
+                    <img class="background-advertising-client-img" src="https://ds.rokomari.store/rokomari110/ProductNew20190903/260X372/46433111c_215560.jpg" alt="Loading Image">
+                </a>
+            </div>
         </div>
-        <div class="study-plan">
-            <a href="/study-plan/">Study plan</a>
-        </div>
-        <div class="notes">
-            <a href="/note/">Note</a>
-        </div>
-    </body>
     </div>
-</html>
+    <div class="p-5"></div>
+    <div class="p-5 display-center">Make your life more efficient and effective</div>
+    <div class="p-5"></div>
+    <div class="container p-5 service bg-color-for-service">
+        <div class="row">
+            <p class="display-center size-1 font-family-verdana dark bold">Choose Your Needed Service</p>
+            <div class="col-2"></div>
+            <div class=" col-2 p-5 bg-color-for-service-block m-3">
+                <p class="size-4 white">Manage Your</p>
+                {% if request.user.is_authenticated %}
+                <a class="size-2 no-underline blue display-center" href="/task/">TASK</a>
+                {% else %}
+                <p class="size-2 blue display-center">TASK</p>
+                {% endif %}
+            </div>
+            <div class="col-1"></div>
+            <div class="col-2 p-5 bg-color-for-service-block m-3">
+                <p class="size-4 white">Organize Your Study Schedule</p>
+                {% if request.user.is_authenticated %}
+                <a class="size-2 no-underline blue display-center" href="/study-plan/">STUDY PLAN</a>
+                {% else %}
+                <p class="size-2 blue display-center">STUDY PLAN</p>
+                {% endif %}
+            </div>
+            <div class="col-1"></div>
+            <div class="col-2 p-5 bg-color-for-service-block m-3">
+                <p class="size-4 white">Store Your Required Data</p>
+                {% if request.user.is_authenticated %}
+                <a class="size-2 no-underline blue display-center" href="/note/">NOTE</a>
+                {% else %}
+                <p class="size-2 blue display-center"">NOTE</p>
+                {% endif %}
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+    <div class="container p-3 size-3 mid-light">
+        <p>Save your time and organize your life</p>
+        <div>
+            <p>1. <strong>Create a To-Do List:</strong> List tasks, prioritize, and break them down.</p>
+            <p>2. <strong>Set Realistic Goals:</strong> Be practical and align goals with your capacity.</p>
+            <p>3. <strong>Prioritize Tasks:</strong> Identify urgent and important tasks using techniques like the Eisenhower matrix.</p>
+            <p>4. <strong>Break Down Complex Tasks:</strong> Divide large tasks into smaller, manageable subtasks.</p>
+            <p>5. <strong>Time Blocking:</strong> Allocate specific time blocks for focused work and include breaks.</p>
+            <p>6. <strong>Use Technology:</strong> Leverage productivity tools and set reminders.</p>
+            <p>7. <strong>Delegate When Possible:</strong> Share tasks with others to lighten the load.</p>
+            <p>8. <strong>Practice the Two-Minute Rule:</strong> Handle tasks that take less than two minutes immediately.</p>
+            <p>9. <strong>Batch Similar Tasks:</strong> Group similar tasks to minimize context-switching.</p>
+            <p>10. <strong>Reflect and Adjust:</strong> Regularly assess and refine your task organization system.</p>
+            <p>11. <strong>Be Kind to Yourself:</strong> Celebrate achievements, forgive setbacks, and prioritize self-care.</p>
+            <p>12. <strong>Incorporate Self-Care:</strong> Schedule breaks and downtime to recharge.</p>
+            <p>13. <strong>Learn to Say No:</strong> Be selective in taking on new tasks to avoid burnout.</p>
+            <p>14. <strong>Celebrate Progress:</strong> Acknowledge and celebrate small victories regularly.</p>
+            <p>15. <strong>Continuous Improvement:</strong> Embrace new productivity techniques and maintain a mindset of continuous improvement.</p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
