@@ -58,6 +58,13 @@
 .bg-color-for-service-block{
     background-color: #242424;
 }
+.bg-color-for-login{
+    background-color: red;
+}
+.bg-for-login-button{
+    background-color: orange;
+    color: black;
+}
 .dark{
     color: #242424;
 }
@@ -106,4 +113,7 @@
     width: 100%;
     height: auto;
     object-fit: cover;
+}
+.bg-for-login{
+    background-color: #242424;
 }
