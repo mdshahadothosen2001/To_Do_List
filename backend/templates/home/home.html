@@ -4,7 +4,7 @@
     <div class=" background-advertising color-for-welcome">
         <img class="background-advertising-img" src="https://cdn.dribbble.com/users/2131993/screenshots/4948736/thoughtworks-gif_dribbble.gif" alt="Loading Image">
         <div class="background-advertising-content size-2">
-            <p class=" size-2 font-family-fantasy">Welcome to To_Do_List</p>
+            <p class=" size-2 font-family-fantasy">Welcome to DayManager</p>
             <p class=" size-3">Your Plans, Notes, and Tasks — All Organized Here</p>
         </div>
     </div>
@@ -34,7 +34,13 @@
         </div>
     </div>
     <div class="p-5"></div>
-    <div class="p-5 display-center">Make your life more efficient and effective</div>
+    <div class="container">
+
+        <div id="contentChangingText" class="alert alert-primary" role="alert">
+          Loading...
+        </div>
+
+    </div>
     <div class="p-5"></div>
     <div class="container p-5 service bg-color-for-service">
         <div class="row">
@@ -90,4 +96,21 @@
         </div>
     </div>
 </div>
+<script>
+    const phrases = [
+      "Make your life efficient.",
+      "Make things more easy.",
+      "Make everything nice.",
+      "Make your life organize.",
+      "Make your efforts effective."
+    ];
+    function changeText() {
+      const contentChangingTextElement = document.getElementById('contentChangingText');
+      const currentIndex = phrases.indexOf(contentChangingTextElement.textContent);
+      const nextIndex = (currentIndex + 1) % phrases.length;
+      contentChangingTextElement.textContent = phrases[nextIndex];
+    }
+    setInterval(changeText, 2000);
+    changeText();
+  </script>
 {% endblock content %}
