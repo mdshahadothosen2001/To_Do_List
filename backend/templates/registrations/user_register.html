@@ -1,7 +1,25 @@
-<h2>Register</h2>
-  <form method="post" action="{% url 'user_register' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Register</button>
-  </form>
- <p>Already have account? <a href="{% url 'user_login' %}">sing in</a> </p>
+{% extends 'home/main.html' %}
+{% block content %}
+<div class="container p-5 m-5 bg-primary">
+
+    <div class="row display-center">
+        <div class="col-1"></div>
+        <div class="col-8 card p-3 mb-3">
+            <p class="size-0 bold black">Let's Get Started</p>
+            <p class="size-4 black me-3 ">Welcome to DayManager! sign up to take service</p>
+            <form action="" method="POST">
+              {% csrf_token %}
+              {% for field in form %}
+              <p> <spna class="display-left"> {{field.label_tag }}</spna><br>
+              {{ field }}</p>
+              {% endfor %}
+              <p class=""><input  class="btn btn-primary" type="submit" value="sign up"></p>
+            </form>
+            <p class="size-2 p-3">Already have an account?<a class="no-underline black" href="{% url 'user_login' %}">Sign In</a> </p>
+        </div>
+    </div>
+    <div class="">
+
+    </div>
+</div>
+{% endblock content %}
