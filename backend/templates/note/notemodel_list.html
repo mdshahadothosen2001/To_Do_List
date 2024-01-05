@@ -1,10 +1,22 @@
-<a href="{% url 'note_create' %}">Make note</a>
-{% for note in notes %}
-    <div class="notes">
-        <a href="{% url 'note' note.id %}"><p>{{note.title}}</p></a>
+{% extends 'home/main.html' %}
+{% block content %}
+<div class="container">
+    <div class="p-3 m-3"></div>
+    <div class="p-3 m-3"></div>
+    <div class="p-3 m-3"></div>
+    <a class="size-0 bold blue no-underline" href="{% url 'note_create' %}">+</a>
+    {% for note in notes %}
+    <div class="display-center p-4 size-1 font-family-verdana bold bg-primary">
+        <a class="no-underline white" href="{% url 'note' note.id %}"><p>{{note.title}}</p></a>
     </div>
+    <div class="p-1"></div>
     {% empty %}
-        <p>Have no note</p>
-{% endfor %}
+        <p class="bg-secondary display-center p-4 size-0 white">HAVE NO NOTE</p>
+    {% endfor %}
 
-<a href="{% url 'home' %}">Home</a>
+    <a class="btn btn-primary" href="{% url 'home' %}">Go Back</a>
+    <div class="p-3 m-3"></div>
+    <div class="p-3 m-3"></div>
+    <div class="p-3 m-3"></div>
+</div>
+{% endblock content %}
