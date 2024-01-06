@@ -1,6 +1,16 @@
-<form method="POST" action="">
-    {% csrf_token %}
-    <p>Are you sure delete this item? "{{task}}"</p>
-    <input type="submit" value="Delete">
-</form>
-<a href="{% url 'tasks' %}">Cancel</a>
+{% extends 'home/main.html' %}
+{% block content %}
+<div class="container">
+    <div class="p-5"></div>
+    <div class="card display-center p-5 m-5">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <p class="size-1">Are you sure delete this task? "{{task.title}}"</p>
+            <input class="no-underline btn btn-primary" type="submit" value="Delete">
+        </form>
+        <div class="p-1"></div>
+        <a class="no-underline btn-primary" href="{% url 'tasks' %}">Cancel</a>
+    </div>
+    <div class="p-5"></div>
+</div>
+{% endblock content %}
