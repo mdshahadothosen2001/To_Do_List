@@ -1,9 +1,20 @@
-<h3>Add Task</h3>
-
-<form action="" method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-
-    <input type="submit" value="submit">
-</form>
-<a href="{% url 'tasks' %}">Cancel</a>
+{% extends 'home/main.html' %}
+{% block content %}
+<div class="containter">
+    <div class="p-5"></div>
+    <div class="card display-center">
+        <form action="" method="POST">
+            <div class="p-3"></div>
+            {% csrf_token %}
+            {% for field in form %}
+            <p class="me-3"> <spna class="display-left"> {{field.label_tag }}</spna><br>
+            {{ field }}</p>
+            {% endfor %}
+            <p class=""><input  class="btn btn-primary" type="submit" value="Submit"></p>
+          </form>
+        <a class="no-underline" href="{% url 'tasks' %}">Cancel</a>
+        <div class="p-3"></div>
+    </div>
+    <div class="p-5"></div>
+</div>
+{% endblock content %}
