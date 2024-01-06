@@ -1,25 +1,94 @@
-<h1>ToDo List</h1>
+{% extends 'home/main.html' %}
+{% block content %}
+<div class="container">
+    <div class="p-3"></div>
+    <div>
+        <div>
+            <a class="no-underline" href="{% url 'home' %}">⌂ Home</a>
+            <form method="GET" action="" class="p-3">
+                <input type="text" name="search-area" value="{{search_input}}">
+                <input type="submit" value="🔎">
+                <button><a class="no-underline" href="{% url 'tasks' %}">↻</a></button>
+            </form>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card">
+            <div class="p-1"></div>
+            <p class="size-0 bold font-family-verdana dark display-center">
+                <u>TO DO LIST</u>
+                <span class="p-5">
+                <span class="p-5"></span>
+                <a class="no-underline" href="{% url 'task_create' %}">+</a>
+            </p>
+            {% for task in tasks %}
+            {% if not task.complete %}
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-7">
+                    <a class="no-underline blue size-2" href="{% url 'task' task.id %}"><p class="size-2 bg-color-for-todo p-3">{{task.title}}</p></a>
+                    <p class="size-4 bg-color-for-todo p-2" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%;">
+                        {{task.description}}
+                    </p>
+                </div>
+                <div class="col-1  display-center display-center display-inline">
+                   <p>
+                        <a class="btn btn-primary no-underline size-0 white" href="{% url 'task_update' task.id %}">🗸</a>
+                        <a class="btn btn-primary no-underline size-0" href="{% url 'task_delete' task.id %}">X</a>
+                   </p>
+                </div>
+                <div class="p-3"></div>
+            </div>
+            {% endif %}
+            {% empty %}
+                <p class="size-0 bold blue display-center">Have No Task</p>
+                <p class="size-2 display-center">Would you like to add new task? Just click + icon then fill the input form. </p>
+            {% endfor %}
+            <div class="p-3"></div>
+        </div>
+    </div>
+    <div class="p-3"></div>
+    <div class="p-3"></div>
+    <div class="card">
+        <div class="card">
+            <div class="p-1"></div>
+            <p class="size-0 bold font-family-verdana mid-light display-center">
+                <u>COMPLETED TASK</u>
+                <span class="p-5">
+                <span class="p-5"></span>
+            </p>
+            {% for task in tasks %}
+            {% if task.complete %}
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-7">
+                    <a class="no-underline blue size-2" href="{% url 'task' task.id %}"><p class="size-2 bg-color-for-todo p-3">{{task.title}} <span class="size-5" style="color: red;">( Completed )</span> </p></a>
+                    <p class="size-4 bg-color-for-todo p-2" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%;">
+                        {{task.description}}
+                    </p>
+                </div>
+                <div class="col-1  display-center display-center display-inline">
+                   <p>
+                        <a class="btn btn-primary no-underline size-0 white" href="{% url 'task_update' task.id %}">🗸</a>
+                        <a class="btn btn-primary no-underline size-0" href="{% url 'task_delete' task.id %}">X</a>
+                   </p>
+                </div>
+                <div class="p-3"></div>
+            </div>
+            {% endif %}
+            {% empty %}
+                <p class="size-0 bold blue display-center">Have No Task</p>
+                <p class="size-2 display-center">Would you like to add new task? Just click + icon then fill the input form. </p>
+            {% endfor %}
+            <div class="p-3"></div>
+        </div>
+    </div>
+    <div class="p-3"></div>
+</div>
 
-<a href="{% url 'task_create' %}">Add Task</a>
+{% endblock content %}
 
-<form method="GET" action="">
-    <input type="text" name="search-area" value="{{search_input}}">
-    <input type="submit" value="search">
-    <button><a href="{% url 'tasks' %}">✕</a></button>
-</form>
-
-<table>
-    <tr>
-        <p>Items</p>
-    </tr>
-    {% for task in tasks %}
-    <tr>
-        <p>{{task.title}} <a href="{% url 'task' task.id %}">View</a> <a href="{% url 'task_update' task.id %}">Edit</a>  <a href="{% url 'task_delete' task.id %}">Remove</a> </p>
-    </tr>
-
-    {% empty %}
-       <h4>No Task</h4>
-
-    {% endfor %}
-</table>
-<a href="{% url 'home' %}">Home</a>
+<p class="position-relative">
+    Your Text
+    <span class="d-block w-100 border-top border-dark position-absolute" style="top: 50%;"></span>
+</p>

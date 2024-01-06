@@ -65,6 +65,9 @@
     background-color: orange;
     color: black;
 }
+.bg-color-for-todo{
+    background-color: rgb(216, 214, 214) ;
+}
 .dark{
     color: #242424;
 }
@@ -111,7 +114,7 @@
 }
 .background-advertising-client-img{
     width: 100%;
-    height: 35rem;
+    height: auto;
     object-fit: cover;
 }
 .bg-for-login{

@@ -12,17 +12,14 @@
     <div class="p-3"></div>
     <div class="container p-3 bg-color-for-service">
         <div class="row">
-            <div class="col-3">
-                <img  class="background-advertising-client-img" src="{% static 'images/organize4.PNG' %}" alt="Loading Image">
+            <div class="col-4">
+                <img  class="background-advertising-client-img" src="{% static 'images/task.PNG' %}" alt="Loading Image">
             </div>
-            <div class="col-3 ">
-                <img class="background-advertising-client-img" src="{% static 'images/organize5.PNG' %}" alt="Loading Image">
+            <div class="col-4">
+                    <img class="background-advertising-client-img" src="{% static 'images/plan.PNG' %}" alt="Loading Image">
             </div>
-            <div class="col-3">
-                    <img class="background-advertising-client-img" src="{% static 'images/organize6.PNG' %}" alt="Loading Image">
-            </div>
-            <div class="col-3">
-                  <img class="background-advertising-client-img" src="{% static 'images/organize7.PNG' %}" alt="Loading Image">
+            <div class="col-4">
+                  <img class="background-advertising-client-img" src="{% static 'images/note.PNG' %}" alt="Loading Image">
             </div>
         </div>
     </div>
@@ -36,37 +33,37 @@
     </div>
     <div class="p-5"></div>
     <div class="container p-5 service bg-color-for-service">
-        <div class="row bg-success">
+        <div class="row bg-color-for-footer">
             <p class="display-center size-0 font-family-verdana white bg-primary bold p-3">Choose Your Needed Service</p>
             <div class="col-2"></div>
-            <div class="size-2 white col-2 p-5 bg-color-for-service-block m-3">
+            <div class="card size-2 col-2 p-5 m-3 bg-primary">
                 {% if request.user.is_authenticated %}
-                <a class="no-underline blue display-center " href="/task/">TASK</a>
+                <a class="no-underline white size-0 bold font-family-verdana display-center " href="/task/">TASK</a>
                 {% else %}
-                <p class="display-center ">TASK</p>
+                <p class="no-underline white size-0 bold font-family-verdana display-center ">TASK</p>
                 {% endif %}
             </div>
             <div class="col-1"></div>
-            <div class="size-2 white col-2 p-5 bg-color-for-service-block m-3">
+            <div class="card size-2 col-2 p-5 m-3 bg-primary">
                 {% if request.user.is_authenticated %}
-                <a class="no-underline blue display-center " href="/study-plan/">STUDY PLAN</a>
+                <a class="no-underline white size-0 bold font-family-verdana display-center " href="/study-plan/">PLAN</a>
                 {% else %}
-                <p class="display-center ">STUDY PLAN</p>
+                <p class="no-underline white size-0 bold font-family-verdana display-center ">PLAN</p>
                 {% endif %}
             </div>
             <div class="col-1"></div>
-            <div class="size-2 white col-2 p-5 bg-color-for-service-block m-3">
+            <div class="card size-2 col-2 p-5 m-3 bg-primary">
                 {% if request.user.is_authenticated %}
-                <a class="no-underline blue display-center " href="/note/">NOTE</a>
+                <a class="no-underline white size-0 bold font-family-verdana display-center " href="/note/">NOTE</a>
                 {% else %}
-                <p class="bold display-center ">NOTE</p>
+                <p class="no-underline white size-0 bold font-family-verdana display-center ">NOTE</p>
                 {% endif %}
             </div>
             <div class="col-2"></div>
         </div>
     </div>
     <div>
-        <img class="background-advertising-client-img p-3" src="{% static 'images/working.gif' %}" alt="Your Image">
+        <img class="background-advertising-client-img p-3" src="{% static 'images/working.laptop1.gif' %}" alt="Loading Image">
     </div>
     <div class="container p-3 size-3 mid-light">
         <p>Save your time and organize your life</p>
