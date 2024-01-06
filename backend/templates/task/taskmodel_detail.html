@@ -1,4 +1,27 @@
-<a href="{% url 'tasks' %}">Go Back</a>
-<h3>Task detail for {{task.title}}</h3>
-<p>description: {{task.description}}</p>
-<p>Complete: {{task.complete}}</p>
+{% extends 'home/main.html' %}
+{% block content %}
+<div class="container">
+    <div class="p-5"></div>
+    <div class="card p-3">
+        <div class="bg-primary white display-center m-3 p-3">
+            <h3 class="">{{task.title}}:</h3>
+        </div>
+        <hr>
+        <p>Description: {{task.description}}</p>
+        <p>Complete Status:
+            {% if task.complete == True %}
+            <span class="size-1 blue bold">Completed</span>
+            {% else %}
+            <span class="size-1 blue bold">Uncomplete</span>
+            {% endif %}
+        </p>
+    </div>
+    <div class="p-1"></div>
+    <p>
+        <a class="btn btn-primary" href="{% url 'tasks' %}">Go Back</a>
+        <a class="btn btn-primary" href="{% url 'task_update' task.id %}">Edit Task</a>
+        <a class="btn btn-primary" href="{% url 'task_delete' task.id %}">Delete</a>
+    </p>
+    <div class="p-5"></div>
+</div>
+{% endblock content %}

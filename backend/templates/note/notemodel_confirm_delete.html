@@ -5,7 +5,7 @@
     <div class="card display-center p-5 m-5">
         <form method="POST" action="">
             {% csrf_token %}
-            <p class="size-1">Are you sure delete this note? "{{note.title}}"</p>
+            <p class="size-1">Are you sure delete this note? {{note.title}}</p>
             <input class="no-underline btn btn-primary" type="submit" value="Delete">
         </form>
         <div class="p-1"></div>
