@@ -1,16 +1,16 @@
 version: "3"
 
 services:
-  db_todo:
+  db_daymanager:
     image: postgres:15
     restart: always
-    container_name: db_todo
+    container_name: db_daymanager
     env_file:
       - ./.env/dev.env
       - ./.env/base.env
       - ./.env/test.env
     ports:
-      - 5430:5532
+      - 5431:5532
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
@@ -27,12 +27,12 @@ services:
     networks:
       - main
 
-  todo_backend:
+  daymanager_backend:
     restart: always
     build:
       context: .
       dockerfile: ./docker/development/Dockerfile
-    container_name: todo_backend
+    container_name: daymanager_backend
     command: >
             sh -c "cd /app/backend &&
             python manage.py makemigrations --settings=config.settings.dev_settings &&
@@ -43,7 +43,7 @@ services:
     ports:
       - "8010:8010"
     depends_on:
-      - db_todo
+      - db_daymanager
     env_file:
       - ./.env/dev.env
       - ./.env/base.env

@@ -12,7 +12,7 @@ SECRET_KEY = "django-insecure-#8pg@fu2r2ytf(=ssi-i=4^l095xdggkwy4$b^huq#$+xj%)^h
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*", "localhost", "127.0.0.1", ".onrender.com", "https://daymanager.onrender.com", "daymanager.onrender.com"]
 
 
 DJANGO_APPS = [
